@@ -1,0 +1,94 @@
+algoritmo 
+declare 
+//variavel
+cod,menor,media, nomemenor , totalgeral, numPedidos, totalcDupla,totalSundae,totalbSplit,quant, totalPedido, refri, bSplit, cSimples,cDupla, sundae,totalRefri,totalcSimples numerico 
+resp literal 
+//acumuladores
+numPedidos <- 0
+totalGeral <- 0
+totalPedido <- 0
+refri <- 0
+bSplit <- 0
+cSimples <- 0
+cDupla <- 0
+sundae <- 0
+//repita geral
+repita 
+ totalPedido <- 0
+// repita pedido
+repita
+ escreva "codigo do produto (0 encerra);"
+ leia cod 
+//
+ se cod <> 0 entao 
+ inicio 
+  escreva "Quantidade do produto;"
+  leia quant
+  se cod = 1 entao 
+  inicio 
+   refri <- refri + quant 
+   totalPedido <- totalPedido + (0.60 * quant)
+  fim 
+  senao se cod = 2 entao 
+  inicio
+   cSimples <- cSimples + quant 
+   totalPedido <-totalPedido + ( 1 * quant )
+  fim 
+  senao se cod = 3 entao 
+  inicio
+   cDupla <- cDupla + quant 
+   totalPedido <- totalPedido + (1.20 * quant)
+  fim
+  senao se cod = 4 entao
+  inicio 
+   sundae <- sundae + quant
+   totalPedido <- totalPedido + (1.50 * quant )
+  fim 
+  senao se cod = 5 entao 
+  inicio 
+   bSplit <- bSplit + quant 
+   totalPedido <- totalPedido + (2 * quant)
+  fim 
+ fim
+ ate cod = 0
+ escreva "Total a pagar:", totalPedido
+ totalGeral <- totalGeral + totalPedido
+ numPedidos <- numPedidos + 1
+ escreva "Há outro pedido?(S/N)"
+ leia resp 
+ate resp = "N"
+//
+menor <- refri 
+nomeMenor <- "Refrigerante"
+se cSimples < menor entao 
+ inicio
+  menor <- cSimples
+  nomeMenor <- "Casquinha Simples" 
+ fim 
+  se cDupla < menor entao 
+ inicio 
+  menor <- cDupla
+  nomeMenor <- "Casquinha Dupla"
+ fim 
+  se sundae < menor entao 
+ inicio 
+  menor <- sundae
+  nomeMenor "Sundae" 
+ fim 
+  se bSplit < menor entao 
+ inicio 
+  menor <- bSplit 
+  nomeMenor <- "Banana Split"
+ fim  
+//
+media <- totalGeral / numPedidos
+//saidas
+escreva "Total de itens vendidos (Refri);",refri
+escreva "Total de itens vendidos (Casquinha Simples);",cSimples
+escreva "Total de itens vendidos (Casquinha Dupla);",cDupla
+escreva "Total de itens vendidos (Sundae);",sundae
+escreva "Total de itens vendidos (Banana Split);",bSplit
+escreva "Total arrecadado;",totalGeral
+escreva "Media por pedido:", media
+escreva "Menos vendido:", nomeMenor
+fim_algoritmo
